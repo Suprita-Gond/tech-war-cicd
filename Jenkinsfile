@@ -78,8 +78,8 @@ pipeline {
             steps {
                 echo "Cleaning up local Docker images..."
                 sh '''
-                     sudo docker rmi suprita11/devops-techno-space:latest
-            sudo docker rmi devops-techno-space
+                     sudo docker rmi suprita11/devops-techno-space:latest || true
+                     sudo docker rmi devops-techno-space || true
                 '''
             }
             post {
@@ -106,14 +106,12 @@ pipeline {
             steps {
                 script {
                     echo "🧩 Checking if the Docker container is already running..."
-                    // Check if container exists
                     def containerExists = sh(
                         script: "sudo docker ps -a --format '{{.Names}}' | grep -w devops-container || true",
                         returnStdout: true
                     ).trim()
                     if (containerExists) {
                         echo "⚠️ Container 'devops-container' already exists."
-                        // Ask user for confirmation
                         def userChoice = input(
                             id: 'ContainerRestart',
                             message: 'Container already running. Do you want to stop and redeploy?',
@@ -123,7 +121,7 @@ pipeline {
                             echo "🛑 Stopping and removing old container..."
                             sh '''
                                 sudo docker stop devops-container || true
-        sudo docker rm devops-container || true
+                                sudo docker rm devops-container || true
                                 echo "🚀 Starting new container..."
                                 sudo docker run -d -p 8084:8080 --name devops-container suprita11/devops-techno-space:latest
                             '''
@@ -132,7 +130,8 @@ pipeline {
                         }
                     } else {
                         echo "🚀 No existing container found — starting new one..."
-                        sh 'sudo docker run -d -p 8084:80 --name devops-container suprita11/devops-techno-space:latest'
+                        // FIXED: Changed 80 to 8080
+                        sh 'sudo docker run -d -p 8084:8080 --name devops-container suprita11/devops-techno-space:latest'
                     }
                 }
             }
