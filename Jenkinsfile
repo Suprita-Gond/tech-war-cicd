@@ -125,7 +125,7 @@ pipeline {
                                 sudo docker stop devops-container || true
         sudo docker rm devops-container || true
                                 echo "🚀 Starting new container..."
-                                sudo docker run -d -p 8084:80 --name devops-container suprita11/devops-techno-space:latest
+                                sudo docker run -d -p 8084:8080 --name devops-container suprita11/devops-techno-space:latest
                             '''
                         } else {
                             echo "⏩ Skipping container restart as per user choice."
