@@ -27,35 +27,23 @@
         </div>
 
         <nav class="sidebar-nav">
-            <a href="#mission" class="nav-item active">
-                <i class="fas fa-rocket"></i>
-                <span>Mission</span>
-            </a>
-            <a href="#" class="nav-item">
-                <i class="fas fa-cloud"></i>
-                <span>Cloud</span>
-            </a>
-            <a href="#pipeline" class="nav-item">
+            <a href="#" class="nav-item active" data-page="pipeline">
                 <i class="fas fa-code-branch"></i>
                 <span>Pipeline</span>
             </a>
-            <a href="#" class="nav-item">
-                <i class="fas fa-robot"></i>
-                <span>Automation</span>
+            <a href="#" class="nav-item" data-page="abledevops">
+                <i class="fas fa-rocket"></i>
+                <span>AbleDevOps</span>
             </a>
-            <a href="#" class="nav-item">
-                <i class="fab fa-docker"></i>
-                <span>Docker</span>
-            </a>
-            <a href="#" class="nav-item">
+            <a href="#" class="nav-item" data-page="kubernetes">
                 <i class="fas fa-cubes"></i>
                 <span>Kubernetes</span>
             </a>
-            <a href="#" class="nav-item">
+            <a href="#" class="nav-item" data-page="aws">
                 <i class="fab fa-aws"></i>
                 <span>AWS</span>
             </a>
-            <a href="#" class="nav-item">
+            <a href="#" class="nav-item" data-page="jenkins">
                 <i class="fab fa-jenkins"></i>
                 <span>Jenkins</span>
             </a>
@@ -74,6 +62,7 @@
             <div class="language">
                 <i class="fas fa-globe"></i>
                 <span>ENG</span>
+                <span class="country">IN</span>
             </div>
         </div>
     </div>
@@ -127,41 +116,202 @@
             </div>
         </section>
 
-        <!-- Mission Section -->
-        <section class="mission" id="mission">
-            <h2>🌌 DevOps Mission Control</h2>
-            <div class="cards">
-                <div class="card">
-                    <h3>🐳 Docker Planet</h3>
-                    <p>Container technology that packages applications and makes deployment faster.</p>
-                </div>
-                <div class="card">
-                    <h3>☸ Kubernetes Galaxy</h3>
-                    <p>Orchestrating containers with scalable cloud-native infrastructure.</p>
-                </div>
-                <div class="card">
-                    <h3>⚡ CI/CD Engine</h3>
-                    <p>Automated pipelines delivering code from development to production.</p>
-                </div>
-                <div class="card">
-                    <h3>☁ Cloud Orbit</h3>
-                    <p>AWS infrastructure powering modern applications worldwide.</p>
-                </div>
-            </div>
-        </section>
+        <!-- ===== DYNAMIC CONTENT SECTIONS ===== -->
+        <div class="content-sections">
 
-        <!-- Pipeline Section -->
-        <section class="pipeline" id="pipeline">
-            <h2>🚀 Deployment Journey</h2>
-            <div class="flow">
-                <span>👨‍💻 Code</span>
-                <span>🐙 GitHub</span>
-                <span>🔨 Jenkins</span>
-                <span>🐳 Docker</span>
-                <span>☸ Kubernetes</span>
-                <span>🌍 Production</span>
-            </div>
-        </section>
+            <!-- Pipeline Section -->
+            <section class="content-section active" id="page-pipeline">
+                <h2>🚀 CI/CD Pipeline</h2>
+                <div class="section-content">
+                    <div class="section-icon"><i class="fas fa-code-branch"></i></div>
+                    <h3>What is a CI/CD Pipeline?</h3>
+                    <p>A CI/CD pipeline is a series of steps that must be performed in order to deliver a new version of software. It automates the process of software delivery, from code commit to production deployment.</p>
+                    
+                    <div class="feature-grid">
+                        <div class="feature-item">
+                            <i class="fas fa-code"></i>
+                            <h4>Continuous Integration</h4>
+                            <p>Automatically build and test every code change to catch issues early.</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-rocket"></i>
+                            <h4>Continuous Delivery</h4>
+                            <p>Automatically deploy code to staging environments after passing tests.</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <h4>Continuous Deployment</h4>
+                            <p>Automatically deploy every change that passes tests to production.</p>
+                        </div>
+                    </div>
+
+                    <div class="pipeline-flow">
+                        <span>📝 Code</span>
+                        <span>→</span>
+                        <span>🔨 Build</span>
+                        <span>→</span>
+                        <span>🧪 Test</span>
+                        <span>→</span>
+                        <span>🐳 Docker</span>
+                        <span>→</span>
+                        <span>☸ Deploy</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- AbleDevOps Section -->
+            <section class="content-section" id="page-abledevops">
+                <h2>⚡ AbleDevOps</h2>
+                <div class="section-content">
+                    <div class="section-icon"><i class="fas fa-rocket"></i></div>
+                    <h3>What is AbleDevOps?</h3>
+                    <p>AbleDevOps is a comprehensive DevOps framework that enables organizations to streamline their development and operations processes. It focuses on automation, collaboration, and continuous improvement.</p>
+                    
+                    <div class="feature-grid">
+                        <div class="feature-item">
+                            <i class="fas fa-users"></i>
+                            <h4>Collaboration</h4>
+                            <p>Break down silos between development and operations teams.</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-robot"></i>
+                            <h4>Automation</h4>
+                            <p>Automate repetitive tasks to increase efficiency and reduce errors.</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-chart-line"></i>
+                            <h4>Continuous Improvement</h4>
+                            <p>Constantly monitor and optimize your processes.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Kubernetes Section -->
+            <section class="content-section" id="page-kubernetes">
+                <h2>☸ Kubernetes</h2>
+                <div class="section-content">
+                    <div class="section-icon"><i class="fas fa-cubes"></i></div>
+                    <h3>What is Kubernetes?</h3>
+                    <p>Kubernetes is an open-source container orchestration platform that automates the deployment, scaling, and management of containerized applications. It was originally developed by Google.</p>
+                    
+                    <div class="feature-grid">
+                        <div class="feature-item">
+                            <i class="fas fa-expand-arrows-alt"></i>
+                            <h4>Auto-scaling</h4>
+                            <p>Automatically scale applications based on demand.</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-sync-alt"></i>
+                            <h4>Self-healing</h4>
+                            <p>Automatically replace failed containers and reschedule them.</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-box"></i>
+                            <h4>Service Discovery</h4>
+                            <p>Automatic service discovery and load balancing.</p>
+                        </div>
+                    </div>
+
+                    <div class="k8s-architecture">
+                        <div class="k8s-node">
+                            <span>Master Node</span>
+                            <div class="k8s-components">
+                                <span>API Server</span>
+                                <span>Scheduler</span>
+                                <span>Controller</span>
+                            </div>
+                        </div>
+                        <div class="k8s-node">
+                            <span>Worker Node</span>
+                            <div class="k8s-components">
+                                <span>Pods</span>
+                                <span>Kubelet</span>
+                                <span>Kube-proxy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- AWS Section -->
+            <section class="content-section" id="page-aws">
+                <h2>☁ AWS Cloud</h2>
+                <div class="section-content">
+                    <div class="section-icon"><i class="fab fa-aws"></i></div>
+                    <h3>What is AWS?</h3>
+                    <p>Amazon Web Services (AWS) is a comprehensive cloud computing platform provided by Amazon. It offers a wide range of services including compute, storage, databases, machine learning, and more.</p>
+                    
+                    <div class="feature-grid">
+                        <div class="feature-item">
+                            <i class="fas fa-server"></i>
+                            <h4>EC2</h4>
+                            <p>Scalable virtual servers in the cloud.</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-database"></i>
+                            <h4>S3</h4>
+                            <p>Secure and scalable object storage.</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-database"></i>
+                            <h4>RDS</h4>
+                            <p>Managed relational database service.</p>
+                        </div>
+                    </div>
+
+                    <div class="aws-services">
+                        <span class="aws-service">🖥️ EC2</span>
+                        <span class="aws-service">📦 S3</span>
+                        <span class="aws-service">🗄️ RDS</span>
+                        <span class="aws-service">🐳 ECS</span>
+                        <span class="aws-service">☸ EKS</span>
+                        <span class="aws-service">⚡ Lambda</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Jenkins Section -->
+            <section class="content-section" id="page-jenkins">
+                <h2>🔨 Jenkins</h2>
+                <div class="section-content">
+                    <div class="section-icon"><i class="fab fa-jenkins"></i></div>
+                    <h3>What is Jenkins?</h3>
+                    <p>Jenkins is an open-source automation server used for continuous integration and continuous delivery (CI/CD). It helps automate the building, testing, and deployment of software.</p>
+                    
+                    <div class="feature-grid">
+                        <div class="feature-item">
+                            <i class="fas fa-plug"></i>
+                            <h4>Plugins</h4>
+                            <p>Over 1000+ plugins to integrate with various tools.</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-code-branch"></i>
+                            <h4>Pipeline as Code</h4>
+                            <p>Define your pipeline using Jenkinsfile.</p>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-sync"></i>
+                            <h4>Automation</h4>
+                            <p>Automate builds, tests, and deployments.</p>
+                        </div>
+                    </div>
+
+                    <div class="jenkins-flow">
+                        <span>📝 Commit</span>
+                        <span>→</span>
+                        <span>🔨 Build</span>
+                        <span>→</span>
+                        <span>🧪 Test</span>
+                        <span>→</span>
+                        <span>📦 Package</span>
+                        <span>→</span>
+                        <span>🚀 Deploy</span>
+                    </div>
+                </div>
+            </section>
+
+        </div>
 
         <!-- Footer -->
         <footer>
@@ -199,16 +349,48 @@
             }
         });
 
-        // Active nav item highlight
+        // Sidebar navigation - Show content when clicked
         document.querySelectorAll('.nav-item').forEach(item => {
-            item.addEventListener('click', function() {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all nav items
                 document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+                // Add active class to clicked item
                 this.classList.add('active');
-                // Close sidebar on mobile after click
+                
+                // Hide all content sections
+                document.querySelectorAll('.content-section').forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                // Show the selected content section
+                const pageId = this.getAttribute('data-page');
+                const targetSection = document.getElementById('page-' + pageId);
+                if (targetSection) {
+                    targetSection.classList.add('active');
+                    // Scroll to the section
+                    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+                
+                // Close sidebar on mobile
                 if (window.innerWidth <= 768) {
                     toggleSidebar();
                 }
             });
+        });
+
+        // Show first section by default
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hide all sections first
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            // Show the first one (Pipeline)
+            const firstSection = document.getElementById('page-pipeline');
+            if (firstSection) {
+                firstSection.classList.add('active');
+            }
         });
     </script>
 
