@@ -22,7 +22,7 @@ pipeline {
         stage('Docker Build the Image') {
             steps {
                 echo "Building the Docker image..."
-                sh 'sudo docker build -t snapchat-sak-cicd-docker .'
+                sh 'sudo docker build -t devops-techno-space .'
             }
             post {
                 success {
@@ -49,7 +49,7 @@ pipeline {
         stage('Docker Tag the Image') {
             steps {
                 echo "Tagging the Docker image..."
-                sh 'sudo docker tag snapchat-sak-cicd-docker sakit333/snapchat-sak-cicd-docker:latest'
+                sh 'sudo docker tag devops-techno-space suprita11/devops-techno-space:latest'
             }
             post {
                 success {
@@ -63,7 +63,7 @@ pipeline {
         stage('Docker Push the Image') {
             steps {
                 echo "Pushing the Docker image to DockerHub..."
-                sh 'sudo docker push sakit333/snapchat-sak-cicd-docker:latest'
+                sh 'sudo docker push suprita11/devops-techno-space:latest'
             }
             post {
                 success {
@@ -78,8 +78,8 @@ pipeline {
             steps {
                 echo "Cleaning up local Docker images..."
                 sh '''
-                    sudo docker rmi sakit333/snapchat-sak-cicd-docker:latest
-                    sudo docker rmi snapchat-sak-cicd-docker
+                     sudo docker rmi suprita11/devops-techno-space:latest
+            sudo docker rmi devops-techno-space
                 '''
             }
             post {
@@ -108,11 +108,11 @@ pipeline {
                     echo "🧩 Checking if the Docker container is already running..."
                     // Check if container exists
                     def containerExists = sh(
-                        script: "sudo docker ps -a --format '{{.Names}}' | grep -w snapchat-container || true",
+                        script: "sudo docker ps -a --format '{{.Names}}' | grep -w devops-container || true",
                         returnStdout: true
                     ).trim()
                     if (containerExists) {
-                        echo "⚠️ Container 'snapchat-container' already exists."
+                        echo "⚠️ Container 'devops-container' already exists."
                         // Ask user for confirmation
                         def userChoice = input(
                             id: 'ContainerRestart',
@@ -122,17 +122,17 @@ pipeline {
                         if (userChoice == 'Yes') {
                             echo "🛑 Stopping and removing old container..."
                             sh '''
-                                sudo docker stop snapchat-container || true
-                                sudo docker rm snapchat-container || true
+                                sudo docker stop devops-container || true
+        sudo docker rm devops-container || true
                                 echo "🚀 Starting new container..."
-                                sudo docker run -d -p 8084:8080 --name snapchat-container sakit333/snapchat-sak-cicd-docker:latest
+                                sudo docker run -d -p 8084:80 --name devops-container suprita11/devops-techno-space:latest
                             '''
                         } else {
                             echo "⏩ Skipping container restart as per user choice."
                         }
                     } else {
                         echo "🚀 No existing container found — starting new one..."
-                        sh 'sudo docker run -d -p 8084:8080 --name snapchat-container sakit333/snapchat-sak-cicd-docker:latest'
+                        sh 'sudo docker run -d -p 8084:80 --name devops-container suprita11/devops-techno-space:latest'
                     }
                 }
             }
