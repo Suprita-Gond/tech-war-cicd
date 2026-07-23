@@ -1,5 +1,5 @@
 /* ============================================
-   DEVOPS TECHNO SPACE - SPACE THEME CSS
+   DEVOPS TECHNO SPACE - MAIN STYLESHEET
    ============================================ */
 
 /* ---------- RESET & BASE ---------- */
@@ -15,6 +15,7 @@ body {
     color: #e0e8f0;
     overflow-x: hidden;
     line-height: 1.6;
+    display: flex;
 }
 
 /* ---------- ANIMATED STARS BACKGROUND ---------- */
@@ -55,7 +56,7 @@ body {
     100% { opacity: 1; }
 }
 
-/* ---------- GLOWING ORBS (Background decoration) ---------- */
+/* ---------- GLOWING ORBS ---------- */
 body::before,
 body::after {
     content: '';
@@ -90,14 +91,206 @@ body::after {
     100% { transform: translate(-20px, 40px) scale(0.9); }
 }
 
-/* ---------- HEADER / NAVIGATION ---------- */
-header {
+/* ============================================
+   SIDEBAR STYLES
+   ============================================ */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -320px;
+    width: 300px;
+    height: 100vh;
+    background: rgba(10, 14, 26, 0.95);
+    backdrop-filter: blur(20px);
+    border-right: 1px solid rgba(100, 150, 255, 0.1);
+    z-index: 1000;
+    transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    box-shadow: 4px 0 40px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+/* Sidebar Header */
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 20px 20px;
+    border-bottom: 1px solid rgba(100, 150, 255, 0.08);
+}
+
+.logo-side {
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #00d4ff, #7b2ffc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: #8899bb;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 5px 10px;
+}
+
+.close-btn:hover {
+    color: #fff;
+    transform: rotate(90deg);
+}
+
+/* Sidebar Navigation */
+.sidebar-nav {
+    flex: 1;
+    padding: 20px 15px;
+    overflow-y: auto;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 14px 18px;
+    color: #8899bb;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    margin-bottom: 5px;
+    font-size: 1rem;
+    font-weight: 500;
     position: relative;
+}
+
+.nav-item i {
+    width: 24px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.nav-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: #e0e8f0;
+    transform: translateX(5px);
+}
+
+.nav-item.active {
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(123, 47, 252, 0.15));
+    color: #00d4ff;
+    border: 1px solid rgba(0, 212, 255, 0.15);
+}
+
+.nav-item.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 3px;
+    height: 30px;
+    background: linear-gradient(180deg, #00d4ff, #7b2ffc);
+    border-radius: 0 3px 3px 0;
+}
+
+/* Sidebar Footer */
+.sidebar-footer {
+    padding: 20px;
+    border-top: 1px solid rgba(100, 150, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.weather {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #8899bb;
+    font-size: 0.9rem;
+}
+
+.weather i {
+    color: #ffd93d;
+    font-size: 1.2rem;
+}
+
+.weather-text {
+    color: #667799;
+    font-size: 0.85rem;
+}
+
+.datetime {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #667799;
+    font-size: 0.9rem;
+}
+
+.time {
+    font-weight: 600;
+    color: #e0e8f0;
+    font-size: 1.1rem;
+}
+
+.language {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #667799;
+    font-size: 0.85rem;
+    padding-top: 5px;
+}
+
+/* ---------- OVERLAY ---------- */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* ============================================
+   MAIN CONTENT
+   ============================================ */
+
+.main-content {
+    flex: 1;
+    margin-left: 0;
+    transition: margin-left 0.4s ease;
+    position: relative;
+    z-index: 1;
+}
+
+/* ---------- HEADER / TOP BAR ---------- */
+header {
+    position: sticky;
+    top: 0;
     z-index: 10;
-    padding: 20px 50px;
+    padding: 15px 30px;
     background: rgba(10, 14, 26, 0.8);
     backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(100, 150, 255, 0.1);
+    border-bottom: 1px solid rgba(100, 150, 255, 0.08);
 }
 
 nav {
@@ -108,54 +301,42 @@ nav {
     margin: 0 auto;
 }
 
-.logo {
+.menu-btn {
+    background: none;
+    border: none;
+    color: #e0e8f0;
     font-size: 1.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 5px 10px;
+}
+
+.menu-btn:hover {
+    color: #00d4ff;
+    transform: scale(1.1);
+}
+
+.logo {
+    font-size: 1.6rem;
     font-weight: 700;
     background: linear-gradient(135deg, #00d4ff, #7b2ffc);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     letter-spacing: 1px;
-    text-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
 }
 
-.logo:hover {
-    transform: scale(1.05);
-    transition: transform 0.3s ease;
-}
-
-.menu {
+.header-right {
     display: flex;
-    gap: 35px;
+    align-items: center;
+    gap: 20px;
+    color: #667799;
+    font-size: 0.9rem;
 }
 
-.menu a {
-    color: #a0b4d0;
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    position: relative;
-    letter-spacing: 0.5px;
-}
-
-.menu a::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(90deg, #00d4ff, #7b2ffc);
-    transition: width 0.3s ease;
-}
-
-.menu a:hover {
-    color: #ffffff;
-}
-
-.menu a:hover::after {
-    width: 100%;
+.header-time {
+    font-weight: 600;
+    color: #e0e8f0;
 }
 
 /* ---------- HERO SECTION ---------- */
@@ -191,6 +372,7 @@ nav {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     animation: gradientShift 4s ease-in-out infinite alternate;
+    background-size: 300% 300%;
 }
 
 @keyframes gradientShift {
@@ -226,7 +408,7 @@ nav {
     box-shadow: 0 0 50px rgba(0, 212, 255, 0.5);
 }
 
-/* ---------- PLANET / ORBIT ANIMATION ---------- */
+/* ---------- PLANET / ORBIT ---------- */
 .planet {
     flex: 1;
     display: flex;
@@ -387,11 +569,11 @@ nav {
 }
 
 .flow span:nth-child(1) { color: #00d4ff; }
-.flow span:nth-child(3) { color: #7b2ffc; }
-.flow span:nth-child(5) { color: #ff6fd8; }
-.flow span:nth-child(7) { color: #ffd93d; }
-.flow span:nth-child(9) { color: #00d4ff; }
-.flow span:nth-child(11) { color: #7b2ffc; }
+.flow span:nth-child(2) { color: #7b2ffc; }
+.flow span:nth-child(3) { color: #ff6fd8; }
+.flow span:nth-child(4) { color: #ffd93d; }
+.flow span:nth-child(5) { color: #00d4ff; }
+.flow span:nth-child(6) { color: #7b2ffc; }
 
 .flow span:not(:last-child)::after {
     content: '→';
@@ -417,7 +599,10 @@ footer p {
     letter-spacing: 0.5px;
 }
 
-/* ---------- RESPONSIVE DESIGN ---------- */
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
 @media (max-width: 1024px) {
     .hero {
         flex-direction: column;
@@ -451,22 +636,30 @@ footer p {
 }
 
 @media (max-width: 768px) {
+    .sidebar {
+        width: 280px;
+        left: -300px;
+    }
+    
     header {
-        padding: 15px 20px;
+        padding: 12px 15px;
     }
     
     .logo {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
     }
     
-    .menu {
-        gap: 15px;
-        flex-wrap: wrap;
-        justify-content: flex-end;
+    .header-right {
+        gap: 10px;
+        font-size: 0.8rem;
     }
     
-    .menu a {
-        font-size: 0.85rem;
+    .header-date {
+        display: none;
+    }
+    
+    .menu-btn {
+        font-size: 1.5rem;
     }
     
     .content h1 {
@@ -525,11 +718,16 @@ footer p {
         font-size: 0.95rem;
     }
     
-    .menu a {
-        font-size: 0.75rem;
+    .logo {
+        font-size: 1rem;
     }
     
-    .logo {
-        font-size: 1.1rem;
+    .header-time {
+        font-size: 0.7rem;
+    }
+    
+    .sidebar {
+        width: 260px;
+        left: -280px;
     }
 }

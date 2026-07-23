@@ -2,218 +2,215 @@
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>DevOps Techno Space</title>
-
-<link rel="stylesheet" href="style.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Techno Space</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-
 
 <body>
 
-
-<div class="stars"></div>
-
-
-<header>
-
-<nav>
-
-<div class="logo">
-🚀 DevOps Techno Space
-</div>
-
-
-<div class="menu">
-<a href="#">Mission</a>
-<a href="#">Cloud</a>
-<a href="#">Pipeline</a>
-<a href="#">Automation</a>
-</div>
-
-
-</nav>
-
-</header>
-
-
-
-<section class="hero">
-
-
-<div class="content">
-
-<h1>
-Explore The
-<br>
-<span>DevOps Universe</span>
-</h1>
-
-
-<p>
-A futuristic space where developers,
-cloud engineers and automation systems
-connect to build tomorrow's technology.
-</p>
-
-
-<button>
-Launch Journey 🚀
-</button>
-
-
-</div>
-
-
-
-<div class="planet">
-
-<div class="orbit">
-
-<div class="circle">
-☁
-</div>
-
-</div>
-
-</div>
-
-
-</section>
-
-
-
-
-
-<section class="mission">
-
-
-<h2>
-🌌 DevOps Mission Control
-</h2>
-
-
-
-<div class="cards">
-
-
-<div class="card">
-
-<h3>🐳 Docker Planet</h3>
-
-<p>
-Container technology that packages
-applications and makes deployment faster.
-</p>
-
-</div>
-
-
-
-
-<div class="card">
-
-<h3>☸ Kubernetes Galaxy</h3>
-
-<p>
-Orchestrating containers with
-scalable cloud-native infrastructure.
-</p>
-
-</div>
-
-
-
-
-<div class="card">
-
-<h3>⚡ CI/CD Engine</h3>
-
-<p>
-Automated pipelines delivering code
-from development to production.
-</p>
-
-</div>
-
-
-
-
-<div class="card">
-
-<h3>☁ Cloud Orbit</h3>
-
-<p>
-AWS infrastructure powering modern
-applications worldwide.
-</p>
-
-</div>
-
-
-
-</div>
-
-</section>
-
-
-
-
-<section class="pipeline">
-
-
-<h2>
-🚀 Deployment Journey
-</h2>
-
-
-<div class="flow">
-
-
-<span>👨‍💻 Code</span>
-
-↓
-
-<span>🐙 GitHub</span>
-
-↓
-
-<span>🔨 Jenkins</span>
-
-↓
-
-<span>🐳 Docker</span>
-
-↓
-
-<span>☸ Kubernetes</span>
-
-↓
-
-<span>🌍 Production</span>
-
-
-</div>
-
-
-</section>
-
-
-
-
-<footer>
-
-<p>
-© 2026 DevOps Techno Space
-<br>
-Explore • Automate • Deploy Beyond Limits 🚀
-</p>
-
-</footer>
-
+    <!-- Stars Background -->
+    <div class="stars"></div>
+
+    <!-- ===== SIDEBAR ===== -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo-side">
+                🚀 DevOps
+            </div>
+            <button class="close-btn" onclick="toggleSidebar()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="#mission" class="nav-item active">
+                <i class="fas fa-rocket"></i>
+                <span>Mission</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-cloud"></i>
+                <span>Cloud</span>
+            </a>
+            <a href="#pipeline" class="nav-item">
+                <i class="fas fa-code-branch"></i>
+                <span>Pipeline</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-robot"></i>
+                <span>Automation</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fab fa-docker"></i>
+                <span>Docker</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fas fa-cubes"></i>
+                <span>Kubernetes</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fab fa-aws"></i>
+                <span>AWS</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fab fa-jenkins"></i>
+                <span>Jenkins</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="weather">
+                <i class="fas fa-sun"></i>
+                <span>26°C</span>
+                <span class="weather-text">Partly Sunny</span>
+            </div>
+            <div class="datetime">
+                <div class="time">13:12</div>
+                <div class="date">23-07-2026</div>
+            </div>
+            <div class="language">
+                <i class="fas fa-globe"></i>
+                <span>ENG</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== OVERLAY ===== -->
+    <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <div class="main-content">
+
+        <!-- Top Bar -->
+        <header>
+            <nav>
+                <button class="menu-btn" onclick="toggleSidebar()">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="logo">
+                    🚀 DevOps Techno Space
+                </div>
+                <div class="header-right">
+                    <span class="header-time">13:12</span>
+                    <span class="header-date">23-07-2026</span>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="content">
+                <h1>
+                    Explore The
+                    <br>
+                    <span>DevOps Universe</span>
+                </h1>
+                <p>
+                    A futuristic space where developers,
+                    cloud engineers and automation systems
+                    connect to build tomorrow's technology.
+                </p>
+                <button onclick="launchJourney()">
+                    Launch Journey 🚀
+                </button>
+            </div>
+
+            <div class="planet">
+                <div class="orbit">
+                    <div class="circle">
+                        ☁
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission Section -->
+        <section class="mission" id="mission">
+            <h2>🌌 DevOps Mission Control</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>🐳 Docker Planet</h3>
+                    <p>Container technology that packages applications and makes deployment faster.</p>
+                </div>
+                <div class="card">
+                    <h3>☸ Kubernetes Galaxy</h3>
+                    <p>Orchestrating containers with scalable cloud-native infrastructure.</p>
+                </div>
+                <div class="card">
+                    <h3>⚡ CI/CD Engine</h3>
+                    <p>Automated pipelines delivering code from development to production.</p>
+                </div>
+                <div class="card">
+                    <h3>☁ Cloud Orbit</h3>
+                    <p>AWS infrastructure powering modern applications worldwide.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pipeline Section -->
+        <section class="pipeline" id="pipeline">
+            <h2>🚀 Deployment Journey</h2>
+            <div class="flow">
+                <span>👨‍💻 Code</span>
+                <span>🐙 GitHub</span>
+                <span>🔨 Jenkins</span>
+                <span>🐳 Docker</span>
+                <span>☸ Kubernetes</span>
+                <span>🌍 Production</span>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>
+                © 2026 DevOps Techno Space
+                <br>
+                Explore • Automate • Deploy Beyond Limits 🚀
+            </p>
+        </footer>
+
+    </div>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('overlay');
+            sidebar.classList.toggle('open');
+            overlay.classList.toggle('active');
+        }
+
+        function launchJourney() {
+            alert('🚀 Launching your DevOps Journey!');
+        }
+
+        // Close sidebar on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const sidebar = document.getElementById('sidebar');
+                const overlay = document.getElementById('overlay');
+                if (sidebar.classList.contains('open')) {
+                    sidebar.classList.remove('open');
+                    overlay.classList.remove('active');
+                }
+            }
+        });
+
+        // Active nav item highlight
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', function() {
+                document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+                // Close sidebar on mobile after click
+                if (window.innerWidth <= 768) {
+                    toggleSidebar();
+                }
+            });
+        });
+    </script>
 
 </body>
 
